@@ -8,8 +8,15 @@ buildscript {
         supportLibrary = "26.1.0"
         versionCode = 1
         versionName = "1.0"
+
+        libs = [
+                daggerVersion : "com.google.dagger:dagger-compiler:2.14",
+                daggerAnnotationVersion: "com.google.dagger:dagger:2.14",
+                daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:2.14",
+                daggerSupportVersion: "com.google.dagger:dagger-android-support:2.14"
+        ]
     }
-    
+
     repositories {
         google()
         jcenter()
