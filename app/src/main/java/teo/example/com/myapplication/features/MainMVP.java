@@ -4,6 +4,8 @@ public interface MainMVP {
 
     interface View {
 
+        void showMessage(String message);
+
     }
 
     interface Presenter {

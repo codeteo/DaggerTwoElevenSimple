@@ -18,4 +18,8 @@ public abstract class MainActivityModule {
     @Binds
     abstract MainMVP.Presenter providesMainPresenter(MainPresenter presenter);
 
+    @ActivityScope
+    @Binds
+    abstract MainMVP.View providesMainActivity(MainActivity activity);
+
 }

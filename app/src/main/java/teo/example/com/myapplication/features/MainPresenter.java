@@ -3,7 +3,6 @@ package teo.example.com.myapplication.features;
 import javax.inject.Inject;
 
 import teo.example.com.myapplication.di.ActivityScope;
-import timber.log.Timber;
 
 /**
  * Presenter for {@link MainActivity}
@@ -12,12 +11,17 @@ import timber.log.Timber;
 @ActivityScope
 public class MainPresenter implements MainMVP.Presenter {
 
+    private MainMVP.View view;
+
     @Inject
-    MainPresenter() {
+    MainPresenter(MainMVP.View view) {
+        this.view = view;
     }
 
     @Override
     public void onLoadData() {
-        Timber.i("LOAD DATA");
+        if (view != null) {
+            view.showMessage("LOADED");
+        }
     }
 }
