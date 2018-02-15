@@ -4,6 +4,7 @@ import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
 import teo.example.com.myapplication.features.MainActivity;
 import teo.example.com.myapplication.features.di.MainActivityModule;
+import teo.example.com.myapplication.features.fragments.popular.di.PopularModule;
 
 /**
  * We want Dagger.Android to create a Subcomponent which has a parent Component of whichever module
@@ -13,9 +14,9 @@ import teo.example.com.myapplication.features.di.MainActivityModule;
  */
 
 @Module
-public abstract class ActivityBindingModule {
+abstract class ActivityBindingModule {
 
     @ActivityScope
-    @ContributesAndroidInjector(modules = MainActivityModule.class)
+    @ContributesAndroidInjector(modules = {MainActivityModule.class, PopularModule.class})
     abstract MainActivity bindMainActivity();
 }
