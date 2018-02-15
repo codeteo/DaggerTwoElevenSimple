@@ -44,4 +44,7 @@ dependencies {
     annotationProcessor libs.daggerAndroidProcessor
     implementation libs.daggerSupportVersion
 
+    // Utilities
+    implementation libs.timberVersion
+
 }
