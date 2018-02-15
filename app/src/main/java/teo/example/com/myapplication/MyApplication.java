@@ -2,16 +2,18 @@ package teo.example.com.myapplication;
 
 import dagger.android.AndroidInjector;
 import dagger.android.support.DaggerApplication;
+import teo.example.com.myapplication.di.DaggerApplicationComponent;
 
 /**
- * Created by teo on 14/2/2018.
+ * Main class of the application.
  */
 
 public class MyApplication extends DaggerApplication {
 
-
     @Override
     protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
-        return null;
+        return DaggerApplicationComponent.builder()
+                .app(this)
+                .build();
     }
 }

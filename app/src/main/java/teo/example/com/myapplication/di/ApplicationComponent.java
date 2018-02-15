@@ -15,7 +15,7 @@ import teo.example.com.myapplication.MyApplication;
  */
 
 @Singleton
-@Component(modules = AndroidSupportInjectionModule.class)
+@Component(modules = {AndroidSupportInjectionModule.class, ApplicationModule.class})
 public interface ApplicationComponent extends AndroidInjector<MyApplication> {
 
     @Component.Builder
