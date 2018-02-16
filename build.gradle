@@ -28,6 +28,12 @@ buildscript {
                 rxJavaAdapter: "com.squareup.retrofit2:adapter-rxjava2:2.3.0",
                 rxBindings: "com.jakewharton.rxbinding2:rxbinding:2.0.0",
 
+                // Room database
+                room: "android.arch.persistence.room:runtime:1.0.0",
+                roomRxJavaSupport: "android.arch.persistence.room:rxjava2:1.0.0",
+                roomAnnotations: "android.arch.persistence.room:compiler:1.0.0",
+                roomTesting: "android.arch.persistence.room:testing:1.0.0",
+
                 // Utilities
                 timberVersion: "com.jakewharton.timber:timber:4.5.1"
         ]

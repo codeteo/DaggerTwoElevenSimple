@@ -66,6 +66,12 @@ dependencies {
     implementation libs.rxJavaAdapter
     implementation libs.rxBindings
 
+    // Room database
+    implementation libs.room
+    implementation libs.roomRxJavaSupport
+    annotationProcessor libs.roomAnnotations
+    androidTestImplementation libs.roomTesting
+
     // Utilities
     implementation libs.timberVersion
 
