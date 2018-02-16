@@ -1,7 +1,8 @@
-package teo.example.com.myapplication.di;
+package teo.example.com.myapplication.di.modules;
 
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
+import teo.example.com.myapplication.di.scopes.ActivityScope;
 import teo.example.com.myapplication.features.MainActivity;
 import teo.example.com.myapplication.features.di.MainActivityModule;
 import teo.example.com.myapplication.features.fragments.popular.di.PopularModule;
@@ -14,7 +15,7 @@ import teo.example.com.myapplication.features.fragments.popular.di.PopularModule
  */
 
 @Module
-abstract class ActivityBindingModule {
+public abstract class ActivityBindingModule {
 
     @ActivityScope
     @ContributesAndroidInjector(modules = {MainActivityModule.class, PopularModule.class})

@@ -3,7 +3,7 @@ package teo.example.com.myapplication.features.fragments.popular.di;
 import dagger.Binds;
 import dagger.Module;
 import dagger.android.ContributesAndroidInjector;
-import teo.example.com.myapplication.di.FragmentScope;
+import teo.example.com.myapplication.di.scopes.FragmentScope;
 import teo.example.com.myapplication.features.fragments.popular.PopularFragment;
 import teo.example.com.myapplication.features.fragments.popular.PopularMVP;
 import teo.example.com.myapplication.features.fragments.popular.PopularPresenter;

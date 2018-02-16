@@ -2,7 +2,7 @@ package teo.example.com.myapplication.features.di;
 
 import dagger.Binds;
 import dagger.Module;
-import teo.example.com.myapplication.di.ActivityScope;
+import teo.example.com.myapplication.di.scopes.ActivityScope;
 import teo.example.com.myapplication.features.MainActivity;
 import teo.example.com.myapplication.features.MainMVP;
 import teo.example.com.myapplication.features.MainPresenter;

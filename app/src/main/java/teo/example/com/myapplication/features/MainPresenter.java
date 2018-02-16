@@ -2,7 +2,7 @@ package teo.example.com.myapplication.features;
 
 import javax.inject.Inject;
 
-import teo.example.com.myapplication.di.ActivityScope;
+import teo.example.com.myapplication.di.scopes.ActivityScope;
 
 /**
  * Presenter for {@link MainActivity}
