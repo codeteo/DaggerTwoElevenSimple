@@ -15,6 +15,12 @@ buildscript {
                 daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:2.11",
                 daggerSupportVersion: "com.google.dagger:dagger-android-support:2.11",
 
+                okHttp: "com.squareup.okhttp3:okhttp:3.7.0",
+                gson: "com.google.code.gson:gson:2.8.1",
+                retrofit: "com.squareup.retrofit2:retrofit:2.1.0",
+                gsonConverter: "com.squareup.retrofit2:converter-gson:2.2.0",
+                okHttpInterceptor: "com.squareup.okhttp3:logging-interceptor:3.7.0",
+
                 timberVersion: "com.jakewharton.timber:timber:4.5.1"
         ]
     }
