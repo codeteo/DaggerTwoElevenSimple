@@ -60,6 +60,12 @@ dependencies {
     implementation libs.gsonConverter
     implementation libs.okHttpInterceptor
 
+    // RxJava
+    implementation libs.rxAndroid
+    implementation libs.rxJava
+    implementation libs.rxJavaAdapter
+    implementation libs.rxBindings
+
     // Utilities
     implementation libs.timberVersion
 
