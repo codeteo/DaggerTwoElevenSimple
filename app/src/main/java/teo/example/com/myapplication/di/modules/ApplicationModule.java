@@ -33,13 +33,13 @@ public abstract class ApplicationModule {
 
     @Provides
     @Singleton
-    SharedPreferencesManagerImpl provideSharedPreferences(Application application) {
+    static SharedPreferencesManagerImpl provideSharedPreferences(Application application) {
         return new SharedPreferencesManagerImpl(application);
     }
 
     @Provides
     @Singleton
-    HttpUrl providesBaseUrl() {
+    static HttpUrl providesBaseUrl() {
         return PRODUCTION_API_BASE_URL;
     }
 
@@ -52,7 +52,7 @@ public abstract class ApplicationModule {
     @Provides
     @Singleton
     @Named(API_KEY)
-    String providesApiKey() {
+    static String providesApiKey() {
         return Constants.API_KEY;
     }
 
