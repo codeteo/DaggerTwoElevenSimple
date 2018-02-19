@@ -2,8 +2,12 @@ package teo.example.com.myapplication.domain;
 
 import java.util.List;
 
-import io.reactivex.Flowable;
+import javax.inject.Inject;
+
+import io.reactivex.Observable;
 import teo.example.com.myapplication.domain.entities.PopularMovie;
+import teo.example.com.myapplication.domain.repository.PopularMoviesRepository;
+import teo.example.com.myapplication.utils.schedulers.BaseSchedulerProvider;
 
 /**
  * This class is an implementation of {@link GetPopularMoviesUseCase} that
@@ -12,8 +16,20 @@ import teo.example.com.myapplication.domain.entities.PopularMovie;
 
 public class GetPopularMoviesUseCaseImpl implements GetPopularMoviesUseCase {
 
+    private PopularMoviesRepository repository;
+    private BaseSchedulerProvider schedulerProvider;
+
+    @Inject
+    public GetPopularMoviesUseCaseImpl(PopularMoviesRepository repository,
+                                       BaseSchedulerProvider schedulerProvider) {
+        this.repository = repository;
+        this.schedulerProvider = schedulerProvider;
+    }
+
     @Override
-    public Flowable<List<PopularMovie>> getMovies() {
-        return null;
+    public Observable<List<PopularMovie>> getMovies() {
+        return repository.popularMovies()
+                .subscribeOn(schedulerProvider.io())
+                .observeOn(schedulerProvider.androidMainThread());
     }
 }

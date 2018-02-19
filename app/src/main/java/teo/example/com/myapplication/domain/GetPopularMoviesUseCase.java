@@ -2,7 +2,7 @@ package teo.example.com.myapplication.domain;
 
 import java.util.List;
 
-import io.reactivex.Flowable;
+import io.reactivex.Observable;
 import teo.example.com.myapplication.domain.entities.PopularMovie;
 
 /**
@@ -11,6 +11,6 @@ import teo.example.com.myapplication.domain.entities.PopularMovie;
 
 public interface GetPopularMoviesUseCase {
 
-    Flowable<List<PopularMovie>> getMovies();
+    Observable<List<PopularMovie>> getMovies();
 
 }

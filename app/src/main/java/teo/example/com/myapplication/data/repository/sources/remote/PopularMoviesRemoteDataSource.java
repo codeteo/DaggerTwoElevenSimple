@@ -1,5 +1,6 @@
 package teo.example.com.myapplication.data.repository.sources.remote;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -7,6 +8,8 @@ import javax.inject.Named;
 
 import io.reactivex.Observable;
 import teo.example.com.myapplication.data.api.MoviesService;
+import teo.example.com.myapplication.data.api.entities.MoviesResponse;
+import teo.example.com.myapplication.data.api.entities.MoviesResponseNestedResults;
 import teo.example.com.myapplication.data.entities.PopularMovieModel;
 import teo.example.com.myapplication.data.repository.sources.PopularMoviesDataSource;
 
@@ -31,6 +34,19 @@ public class PopularMoviesRemoteDataSource implements PopularMoviesDataSource {
 
     @Override
     public Observable<List<PopularMovieModel>> popularMovies() {
-        return service.getMostPopular(apiKey);
+        return service.getMostPopular(apiKey)
+                .map(response -> {
+
+                    if (response.isSuccessful()) {
+                        MoviesResponse body = response.body();
+                        if (body != null) {
+                            List<PopularMovieModel> movieList = new ArrayList<>();
+                            for (MoviesResponseNestedResults movie: body.getResults()){
+
+                            }
+                        }
+                    }
+
+                });
     }
 }
