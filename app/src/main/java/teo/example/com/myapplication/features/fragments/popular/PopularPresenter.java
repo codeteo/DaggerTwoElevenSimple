@@ -2,7 +2,8 @@ package teo.example.com.myapplication.features.fragments.popular;
 
 import javax.inject.Inject;
 
-import timber.log.Timber;
+import io.reactivex.disposables.CompositeDisposable;
+import teo.example.com.myapplication.domain.GetPopularMoviesUseCase;
 
 /**
  * Presenter for {@link PopularFragment}
@@ -11,17 +12,33 @@ import timber.log.Timber;
 public class PopularPresenter implements PopularMVP.Presenter {
 
     private PopularMVP.View view;
+    private GetPopularMoviesUseCase getPopularMoviesUseCase;
+
+    private CompositeDisposable disposable = new CompositeDisposable();
 
     @Inject
-    PopularPresenter(PopularMVP.View view) {
+    PopularPresenter(PopularMVP.View view, GetPopularMoviesUseCase useCase) {
         this.view = view;
+        this.getPopularMoviesUseCase = useCase;
     }
 
     @Override
     public void onLoadData() {
-        Timber.i("LOADS DATA");
         if (view != null) {
             view.showMessage("POPULAR DATA");
+        }
+
+        disposable.add(
+                getPopularMoviesUseCase.getMovies()
+                    .subscribe(popularMovies -> {
+
+                    }, throwable -> {}));
+    }
+
+    @Override
+    public void unsubscribe() {
+        if (disposable != null && !disposable.isDisposed()) {
+            disposable.clear();
         }
     }
 }

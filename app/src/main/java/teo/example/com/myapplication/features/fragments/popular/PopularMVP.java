@@ -16,6 +16,7 @@ public interface PopularMVP {
 
         void onLoadData();
 
+        void unsubscribe();
     }
 
 }
