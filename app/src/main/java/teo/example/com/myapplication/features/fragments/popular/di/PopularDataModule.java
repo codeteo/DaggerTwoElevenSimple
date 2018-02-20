@@ -17,6 +17,7 @@ import teo.example.com.myapplication.di.scopes.FragmentScope;
 import teo.example.com.myapplication.domain.GetPopularMoviesUseCase;
 import teo.example.com.myapplication.domain.GetPopularMoviesUseCaseImpl;
 import teo.example.com.myapplication.domain.repository.PopularMoviesRepository;
+import teo.example.com.myapplication.utils.NetworkUtils;
 import teo.example.com.myapplication.utils.schedulers.BaseSchedulerProvider;
 
 import static teo.example.com.myapplication.utils.Qualifiers.API_KEY;
@@ -42,9 +43,9 @@ public class PopularDataModule {
     PopularMoviesRepository providesPopularMoviesDataRepository(
             PopularMoviesLocalDataSource localDataSource,
             PopularMoviesRemoteDataSource remoteDataSource,
-            PopularMovieDataMapper mapper) {
+            PopularMovieDataMapper mapper, NetworkUtils networkUtils) {
 
-        return new PopularMoviesDataRepository(localDataSource, remoteDataSource, mapper);
+        return new PopularMoviesDataRepository(localDataSource, remoteDataSource, mapper, networkUtils);
     }
 
     @FragmentScope

@@ -16,4 +16,9 @@ public interface PopularMoviesRepository {
      */
     Observable<List<PopularMovie>> popularMovies();
 
+    /**
+     * remove rxJava subscriptions
+     */
+    void unsubscribe();
+
 }

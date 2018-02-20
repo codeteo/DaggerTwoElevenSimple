@@ -32,4 +32,9 @@ public class GetPopularMoviesUseCaseImpl implements GetPopularMoviesUseCase {
                 .subscribeOn(schedulerProvider.io())
                 .observeOn(schedulerProvider.androidMainThread());
     }
+
+    @Override
+    public void unsubscribe() {
+        repository.unsubscribe();
+    }
 }

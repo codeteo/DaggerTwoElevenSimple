@@ -35,6 +35,7 @@ public class PopularPresenter implements PopularMVP.Presenter {
 
     @Override
     public void unsubscribe() {
+        getPopularMoviesUseCase.unsubscribe();
         if (disposable != null && !disposable.isDisposed()) {
             disposable.clear();
         }

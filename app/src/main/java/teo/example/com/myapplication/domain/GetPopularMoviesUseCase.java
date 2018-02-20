@@ -13,4 +13,6 @@ public interface GetPopularMoviesUseCase {
 
     Observable<List<PopularMovie>> getMovies();
 
+    void unsubscribe();
+
 }

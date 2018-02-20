@@ -57,6 +57,9 @@ public abstract class ApplicationModule {
         return Constants.API_KEY;
     }
 
-    @Binds
-    abstract NetworkUtils providesNetworkUtils(NetworkUtils networkUtils);
+    @Provides
+    @Singleton
+    static NetworkUtils providesNetworkUtils(Context context) {
+        return new NetworkUtils(context);
+    }
 }
