@@ -24,14 +24,12 @@ public class PopularPresenter implements PopularMVP.Presenter {
 
     @Override
     public void onLoadData() {
-        if (view != null) {
-            view.showMessage("POPULAR DATA");
-        }
-
         disposable.add(
                 getPopularMoviesUseCase.getMovies()
                     .subscribe(popularMovies -> {
-
+                        if (view != null) {
+                            view.showMovies(popularMovies);
+                        }
                     }, throwable -> {}));
     }
 
