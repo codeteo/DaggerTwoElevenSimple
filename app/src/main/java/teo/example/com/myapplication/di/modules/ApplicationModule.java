@@ -13,6 +13,7 @@ import okhttp3.HttpUrl;
 import teo.example.com.myapplication.Constants;
 import teo.example.com.myapplication.data.preferences.SharedPreferencesManagerImpl;
 import teo.example.com.myapplication.utils.BaseUrlInterceptor;
+import teo.example.com.myapplication.utils.NetworkUtils;
 
 import static teo.example.com.myapplication.utils.Qualifiers.API_KEY;
 
@@ -56,4 +57,6 @@ public abstract class ApplicationModule {
         return Constants.API_KEY;
     }
 
+    @Binds
+    abstract NetworkUtils providesNetworkUtils(NetworkUtils networkUtils);
 }
