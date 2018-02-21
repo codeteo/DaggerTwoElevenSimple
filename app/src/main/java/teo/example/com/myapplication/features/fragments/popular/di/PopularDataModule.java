@@ -7,6 +7,7 @@ import dagger.Provides;
 import teo.example.com.myapplication.data.api.MoviesService;
 import teo.example.com.myapplication.data.database.dao.PopularMovieDao;
 import teo.example.com.myapplication.data.entities.mappers.PopularMovieDataMapper;
+import teo.example.com.myapplication.data.entities.mappers.PopularMovieEntityMapper;
 import teo.example.com.myapplication.data.repository.PopularMoviesDataRepository;
 import teo.example.com.myapplication.data.repository.sources.PopularMoviesDataSource;
 import teo.example.com.myapplication.data.repository.sources.local.PopularMoviesLocalDataSource;
@@ -43,9 +44,11 @@ public class PopularDataModule {
     PopularMoviesRepository providesPopularMoviesDataRepository(
             PopularMoviesLocalDataSource localDataSource,
             PopularMoviesRemoteDataSource remoteDataSource,
-            PopularMovieDataMapper mapper, NetworkUtils networkUtils) {
+            PopularMovieDataMapper mapper, PopularMovieEntityMapper entityMapper,
+            BaseSchedulerProvider schedulerProvider, NetworkUtils networkUtils) {
 
-        return new PopularMoviesDataRepository(localDataSource, remoteDataSource, mapper, networkUtils);
+        return new PopularMoviesDataRepository(localDataSource, remoteDataSource,
+                mapper, entityMapper, schedulerProvider, networkUtils);
     }
 
     @FragmentScope

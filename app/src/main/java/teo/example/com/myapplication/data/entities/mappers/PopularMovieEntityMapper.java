@@ -3,6 +3,7 @@ package teo.example.com.myapplication.data.entities.mappers;
 import javax.inject.Inject;
 
 import teo.example.com.myapplication.common.mappers.Mapper;
+import teo.example.com.myapplication.data.database.entities.PopularMovieEntity;
 import teo.example.com.myapplication.data.entities.PopularMovieModel;
 import teo.example.com.myapplication.domain.entities.PopularMovie;
 
@@ -11,18 +12,18 @@ import teo.example.com.myapplication.domain.entities.PopularMovie;
  * to items in the domain layer ({@link PopularMovie}).
  */
 
-public class PopularMovieDataMapper implements Mapper<PopularMovieModel, PopularMovie> {
+public class PopularMovieEntityMapper implements Mapper<PopularMovieModel, PopularMovieEntity> {
 
     @Inject
-    PopularMovieDataMapper() {
+    PopularMovieEntityMapper() {
         // required for constructor injection
     }
 
     @Override
-    public PopularMovie transform(PopularMovieModel model) {
-        PopularMovie movie = new PopularMovie();
+    public PopularMovieEntity transform(PopularMovieModel model) {
+        PopularMovieEntity movie = new PopularMovieEntity();
 
-        movie.setId(String.valueOf(model.getId()));
+        movie.setId(model.getId());
         movie.setBackdropPath(model.getBackdropPath());
         movie.setOverview(model.getOverview());
         movie.setPosterPath(model.getPosterPath());
@@ -37,3 +38,4 @@ public class PopularMovieDataMapper implements Mapper<PopularMovieModel, Popular
         return movie;
     }
 }
+

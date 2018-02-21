@@ -39,6 +39,11 @@ public class PopularMoviesLocalDataSource implements PopularMoviesDataSource {
                 .toObservable();
     }
 
+    @Override
+    public void saveMovies(List<PopularMovieEntity> movies) {
+        dao.saveMovies(movies);
+    }
+
     @NonNull
     private Function<List<PopularMovieEntity>, List<PopularMovieModel>> mapToModels() {
         return entities -> {

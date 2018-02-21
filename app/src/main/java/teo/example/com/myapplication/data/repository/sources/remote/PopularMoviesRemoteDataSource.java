@@ -15,6 +15,7 @@ import retrofit2.Response;
 import teo.example.com.myapplication.data.api.MoviesService;
 import teo.example.com.myapplication.data.api.entities.MoviesResponse;
 import teo.example.com.myapplication.data.api.entities.MoviesResponseNestedResults;
+import teo.example.com.myapplication.data.database.entities.PopularMovieEntity;
 import teo.example.com.myapplication.data.entities.PopularMovieModel;
 import teo.example.com.myapplication.data.repository.sources.PopularMoviesDataSource;
 import teo.example.com.myapplication.data.repository.sources.remote.mapper.PopularMovieRemoteMapper;
@@ -46,6 +47,11 @@ public class PopularMoviesRemoteDataSource implements PopularMoviesDataSource {
         return service.getMostPopular(apiKey)
                 .map(mapToModel())
                 .toObservable();
+    }
+
+    @Override
+    public void saveMovies(List<PopularMovieEntity> movies) {
+        //do nothing
     }
 
     @NonNull
